@@ -1,7 +1,5 @@
-import * as SC from './FloatingPanel.styles';
+import * as SC from "./FloatingPanel.styles";
 
 export const FloatingPanel = () => (
-  <SC.Container>
-    This is the floating panel
-  </SC.Container>
-)
+  <SC.Container>This is the floating panel</SC.Container>
+);
