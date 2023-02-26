@@ -74,7 +74,7 @@ function prettierBackground() {
     console.log(COLOR_CYAN, "Build started");
     const id = loadingAnimation("Formating with prettier...");
     exec(
-      `npx prettier --print-width 99999 --write ./unpacked/background`,
+      `npx prettier --write ./unpacked/background`,
       (err, stdout, stderr) => {
         if (err) {
           reject(err);

@@ -4,6 +4,8 @@ export const Container = styled.div`
   position: fixed;
   z-index: 999999;
 
+  color: white;
+
   left: calc(100% - 120px);
   top: 15px;
   
@@ -12,5 +14,5 @@ export const Container = styled.div`
 
   border: 1px solid black;
   text-align: center;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.25);
 `;

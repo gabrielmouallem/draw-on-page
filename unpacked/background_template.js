@@ -8,14 +8,9 @@ chrome.action.onClicked.addListener((tab) => {
           container.id = "extension_root";
           document.body.appendChild(container);
 
-          runReactCode();
+          ===> build here <===
         }
       },
     });
   }
 });
-
-
-function runReactCode() {
-  ===> build here <===
-}
