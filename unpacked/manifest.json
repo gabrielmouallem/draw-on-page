@@ -1,0 +1,11 @@
+{
+  "name": "Draw on Page",
+  "action": {},
+  "manifest_version": 3,
+  "version": "0.0.1",
+  "description": "You can draw on the page",
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
