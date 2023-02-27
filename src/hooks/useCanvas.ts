@@ -4,6 +4,19 @@ export const useCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const contextRef = useRef<CanvasRenderingContext2D | null>(null);
   const [isDrawing, setIsDrawing] = useState(false);
+  const [canvasEnabled, setCanvasEnabled] = useState(false);
+
+  const printCanvas = () => {
+    window.print();
+  }
+
+  const enableCanvas = () => {
+    setCanvasEnabled(true);
+  }
+
+  const disableCanvas = () => {
+    setCanvasEnabled(false);
+  }
 
   const prepareCanvas = () => {
     const canvas = canvasRef.current;
@@ -91,6 +104,10 @@ export const useCanvas = () => {
   return {
     canvasRef,
     contextRef,
+    canvasEnabled,
+    printCanvas,
+    enableCanvas,
+    disableCanvas,
     clearCanvas,
     startDrawing,
     finishDrawing,
