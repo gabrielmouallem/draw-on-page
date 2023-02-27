@@ -8,10 +8,30 @@ export const useCanvas = () => {
   const prepareCanvas = () => {
     const canvas = canvasRef.current;
     if (canvas) {
-      canvas.width = window.innerWidth * 2;
-      canvas.height = window.innerHeight * 2;
-      canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${window.innerHeight}px`;
+      var body = document.body,
+      html = document.documentElement;
+
+      var width = Math.max(
+        body.scrollWidth,
+        body.offsetWidth,
+        html.clientWidth,
+        html.scrollWidth,
+        html.offsetWidth
+      );
+
+      var height = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+      );
+
+      canvas.width = width * 2;
+      canvas.height = height * 2;
+      canvas.style.width = `${width}px`;
+
+      canvas.style.height = `${height}px`;
 
       const context = canvas.getContext("2d");
 
@@ -26,9 +46,8 @@ export const useCanvas = () => {
   };
 
   const startDrawing = ({
-    nativeEvent,
+    nativeEvent: { offsetX, offsetY },
   }: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
-    const { offsetX, offsetY } = nativeEvent;
     if (contextRef.current) {
       contextRef.current.beginPath();
       contextRef.current.moveTo(offsetX, offsetY);
@@ -42,12 +61,11 @@ export const useCanvas = () => {
   };
 
   const draw = ({
-    nativeEvent,
+    nativeEvent: { offsetX, offsetY },
   }: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
     if (!isDrawing) {
       return;
     }
-    const { offsetX, offsetY } = nativeEvent;
     if (contextRef.current) {
       contextRef.current.lineTo(offsetX, offsetY);
       contextRef.current.stroke();
