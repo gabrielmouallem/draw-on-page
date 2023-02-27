@@ -10,6 +10,7 @@ export const DrawableCanvas = () => {
       ref={canvasRef}
       onMouseDown={startDrawing}
       onMouseUp={finishDrawing}
+      onMouseLeave={finishDrawing}
       onMouseMove={draw}
     />
   );
